@@ -31,10 +31,9 @@ object orange {
 
 
     df2.registerTempTable("orange")
-    df2.printSchema()
 
 
-  sqlcontext.sql("" +
+  val summary=sqlcontext.sql("" +
       "select Var1, Var2, Var3, Var4, Var5, Var6, Var7, Var8, Var9, Var10, " +
       "Var11, Var12, Var13, Var14, Var15, Var16, Var17, Var18, Var19, Var20, " +
       "Var21, Var22, Var23, Var24, Var25, Var26, Var27, Var28, Var29, Var30, " +
@@ -53,7 +52,9 @@ object orange {
       "Var151, Var152, Var153, Var154, Var155, Var156, Var157, Var158, Var159, Var160, " +
       "Var161, Var162, Var163, Var164, Var165, Var166, Var167, Var168, Var169," +
       " Var170, Var171, Var172, Var173, Var174, Var175, Var176, Var177, Var178, Var179, Var180, " +
-      "Var181, Var182, Var183, Var184, Var185, Var186, Var187, Var188, Var189, Var190 from orange limit 1").foreach(println)
+      "Var181, Var182, Var183, Var184, Var185, Var186, Var187, Var188, Var189, Var190 from orange ").describe()
+
+    summary.show(10)
 
 
 
