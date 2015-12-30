@@ -56,10 +56,14 @@ object orange {
 
     summary.show(10)
 
+    val dftest=summary.toDF
 
-
-
-
+    dftest
+      .coalesce(1)
+      .write
+      .format("com.databricks.spark.csv")
+      .option("header","true")
+      .save("op.csv")
 
   }
 }
